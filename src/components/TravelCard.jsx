@@ -23,15 +23,42 @@ export default function TravelCard({ viaggi }) {
                             padding: '20px',
                             position: 'relative'
                         }}>
-                            <h5 className="mb-0" style={{
+                            <h5 className="mb-1" style={{
                                 color: '#fff',
                                 fontWeight: '500',
                                 fontSize: '1.3rem',
                                 letterSpacing: '-0.02em'
                             }}>
-                                {viaggi.destinazione}
+                                {viaggi.citta}
                             </h5>
-
+                            <div className="d-flex align-items-center gap-1" style={{
+                                color: 'rgba(255, 255, 255, 0.9)',
+                                fontSize: '0.85rem',
+                                fontWeight: '400'
+                            }}>
+                                <i className="bi bi-geo-alt-fill" style={{ fontSize: '0.75rem' }}></i>
+                                <span>{viaggi.nazione}</span>
+                            </div>
+                            <span style={{
+                                position: 'absolute',
+                                top: '15px',
+                                right: '15px',
+                                backgroundColor: viaggi.tipologia === 'Soft' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(45, 45, 45, 0.3)',
+                                color: '#fff',
+                                padding: '6px 12px',
+                                borderRadius: '20px',
+                                fontSize: '0.7rem',
+                                fontWeight: '600',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                                backdropFilter: 'blur(10px)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px'
+                            }}>
+                                <i className={`bi ${viaggi.tipologia === 'Soft' ? 'bi-building' : 'bi-leaf-fill'}`}></i>
+                                {viaggi.tipologia}
+                            </span>
                         </div>
 
                         <div className="card-body" style={{ paddingTop: '24px' }}>

@@ -13,6 +13,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route element={<Home />} path="/" />
             <Route element={<ViaggioSingoloPage />} path="/viaggio/:id" />
+            <R
             <Route />
           </Route>
         </Routes>

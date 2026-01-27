@@ -15,33 +15,6 @@ export default function GuestCard({ partecipante }) {
 
     return (
         <>
-            {/* <div className="accordion" id="accordionPanelsStayOpenExample">
-
-                <div className="accordion-item">
-                    <h2 className="accordion-header">
-                        <button
-                            className={`accordion-button ${openAccordion !== partecipante.id ? 'collapsed' : ''}`}
-                            type="button"
-                            onClick={() => toggleAccordion(partecipante.id)}
-                        >
-                            {partecipante.nome} {partecipante.cognome}
-                        </button>
-                    </h2>
-                    <div
-                        className={`accordion-collapse collapse ${openAccordion !== partecipante.id ? 'show' : ''}`}
-                    >
-                        <div className="accordion-body">
-                            <div>E-mail: {partecipante.email}</div>
-                            <div>Telefono: {partecipante.telefono}</div>
-                            <div>Codice Fiscale: {partecipante.codiceFiscale}</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div> */}
-
-
-            {/* ACCORDION_TEST */}
             <div className="accordion" id="accordionPanelsStayOpenExample">
                 <div className="accordion-item mb-3 border-0"
                     style={{

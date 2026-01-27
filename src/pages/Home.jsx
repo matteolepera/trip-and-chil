@@ -1,12 +1,20 @@
 import viaggi from "../data/viaggi.js"
 import TravelCard from "../components/TravelCard.jsx"
+import SelectBar from "../components/SelectBar.jsx"
+import { useState } from "react"
 
 export default function Home() {
+    const [selectedMonth, setSelectedMonth] = useState("")
+
+    const filteredMonth = selectedMonth ? viaggi.filter(viaggio => viaggio.dataInizio.split('-')[1] === selectedMonth) :
+        viaggi;
+
     return (
         <>
             <div className="py-5 container">
                 <div className="row g-3 mt-4">
-                    {viaggi.map((viaggio) => (
+                    <SelectBar viaggi={viaggi} setSelectedMonth={setSelectedMonth} selectedMonth={selectedMonth} />
+                    {filteredMonth.map((viaggio) => (
                         <TravelCard key={viaggio.id} viaggi={viaggio} />
                     ))}
                 </div>

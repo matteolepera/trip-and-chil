@@ -6,24 +6,6 @@ export default function TravelCard({ viaggi }) {
 
     return (
         <>
-            {/* <div className='col-sm-12 col-md-6 col-lg-4'>
-                <Link to={`/viaggio/${viaggi.id}`} className="text-decoration-none">
-                    <div className="card mb-3 h-100">
-                        <div className="card-body">
-                            <h5 className="card-title">{viaggi.destinazione}</h5>
-                            <div className="d-flex justify-content-between">
-                                <span>Inizio: {viaggi.dataInizio}</span>
-                                <span>Fine: {viaggi.dataFine}</span>
-                            </div>
-                        </div>
-                    </div >
-                </Link>
-            </div> */}
-
-
-            {/* CARD-TEST */}
-
-
             <div className='col-sm-12 col-md-6 col-lg-4'>
                 <Link to={`/viaggio/${viaggi.id}`} className="text-decoration-none">
                     <div className="card mb-3 h-100 border-0"

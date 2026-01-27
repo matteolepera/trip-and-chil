@@ -67,6 +67,24 @@ const viaggi = [
         destinazione: "Amsterdam, Olanda",
         dataInizio: "2026-01-20",
         dataFine: "2026-01-27"
+    },
+    {
+        id: 11,
+        destinazione: "Maranello, Italia",
+        dataInizio: "2026-11-16",
+        dataFine: "2026-11-22"
+    },
+    {
+        id: 12,
+        destinazione: "New York, USA",
+        dataInizio: "2026-12-20",
+        dataFine: "2026-12-28"
+    },
+    {
+        id: 13,
+        destinazione: "Rovaniemi, Finlandia",
+        dataInizio: "2026-12-22",
+        dataFine: "2027-01-1"
     }
 ];
 

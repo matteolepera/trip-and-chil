@@ -17,7 +17,7 @@ export default function ViaggioSingoloPage() {
         <>
             <div className="py-5 container">
                 <SearchBar value={searchGuest} onChange={setSearchGuest} />
-                <Button onClick={() => navigate(-1)}>Torna indietro</Button>
+                <Button onClick={() => navigate(-1)} ><i className="bi bi-arrow-left-circle-fill me-2"></i>Torna indietro</Button>
                 <div className="row g-3 mt-4">
                     {ricercaPartecipante.map(p => (
                         <GuestCard key={p.id} partecipante={p} />

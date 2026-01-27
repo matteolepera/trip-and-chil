@@ -1,9 +1,10 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { Form, useNavigate, useParams } from "react-router-dom"
 import GuestCard from "../components/GuestCard"
 import SearchBar from "../components/SearchBar.jsx"
 import partecipantiArray from "../data/partecipanti.js"
 import Button from "../components/Button.jsx"
 import { useState } from "react"
+import FormViaggi from "../components/FormViaggi.jsx"
 
 export default function ViaggioSingoloPage() {
     const { id } = useParams()

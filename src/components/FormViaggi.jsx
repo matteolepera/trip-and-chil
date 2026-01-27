@@ -1,105 +1,129 @@
 import { useState } from "react";
 
+const initialData = {
+    citta: '',
+    nazione: '',
+    dataInizio: '',
+    dataFine: '',
+    tipologia: 'Soft',
+};
+
 export default function FormViaggi() {
-    const [citta, setCitta] = useState('');
-    const [nazione, setNazione] = useState('');
-    const [inizio, setInizio] = useState('');
-    const [fine, setFine] = useState('');
-    const [tipo, setTipo] = useState('');
+    const [formData, setFormData] = useState(initialData);
 
-    const initialData = [
-        {
-            citta: '',
-            nazione: '',
-            inizio: '',
-            fine: '',
-            tipo: 'Soft',
-        }
-    ];
+    function updateFormData(event) {
+        const { value, name } = event.target;
+        setFormData({ ...formData, [name]: value });
+    }
 
-    const [viaggio, setViaggio] = useState(initialData);
 
+    // handler submit
     function handlerSubmit(event) {
         event.preventDefault();
 
-        if (citta.trim() && inizio.trim() && fine.trim()) {
-            setViaggio([...viaggio, { citta, nazione, inizio, fine, tipo }]);
-            // sostituire nuovo viaggio con l'array dei viaggi
-            setCitta('');
-            setNazione('');
-            setInizio('');
-            setFine('');
-            setTipo('Soft')
+        if (
+            formData.citta.trim() &&
+            formData.nazione.trim() &&
+            formData.dataInizio.trim() &&
+            formData.dataFine.trim()
+        ) {
+
+            // const ultimoId = addViaggio[addViaggio.length - 1].addViaggio.id;
+
+            // const nuovoViaggio = {
+            //     ...formData,
+            //     id: ultimoId + 1,
+            // };
+
+            addViaggio(formData)
+            setFormData(initialData);
+
         } else {
             alert('Compila tutti i campi!');
         }
     }
 
 
+
     return (
         <>
-            <form action={handlerSubmit}>
+            <section className="container py-3">
+                <h1>Aggiungi un nuovo viaggio</h1>
+                <form onSubmit={handlerSubmit}>
 
-                {/* citta */}
-                <label htmlFor="citta">citta?</label>
-                <input
-                    id="citta"
-                    type="text"
-                    value={citta}
-                    onChange={(event) => {
-                        setCitta(event.target.value)
-                    }}
-                />
-                {/* nazione */}
-                <label htmlFor="nazione">nazione?</label>
-                <input
-                    id="nazione"
-                    type="text"
-                    value={nazione}
-                    onChange={(event) => {
-                        setNazione(event.target.value)
-                    }}
-                />
+                    {/* citta */}
+                    <label htmlFor="citta">Nome destinazione</label>
+                    <input
+                        id="citta"
+                        name="citta"
+                        type="text"
+                        value={formData.citta}
+                        onChange={updateFormData}
+                        required
+                    />
+                    {/* nazione */}
+                    <label htmlFor="nazione">Nazione destinazione</label>
+                    <input
+                        id="nazione"
+                        name="nazione"
+                        type="text"
+                        value={formData.nazione}
+                        onChange={updateFormData}
+                        required
+                    />
 
-                {/* inizio */}
-                <label htmlFor="inizio">Quando inizia?</label>
-                <input
-                    id="inizio"
-                    type="text"
-                    value={inizio}
-                    onChange={(event) => {
-                        setInizio(event.target.value)
-                    }}
-                />
+                    {/* inizio */}
+                    <label htmlFor="dataInizio">Partenza</label>
+                    <input
+                        id="dataInizio"
+                        name="dataInizio"
+                        type="date"
+                        value={formData.dataInizio}
+                        onChange={updateFormData}
+                        min="2026-01-28"
+                        required
+                    />
 
-                {/* fine */}
-                <label htmlFor="fine">Qunado finisce?</label>
-                <input
-                    id="fine"
-                    type="text"
-                    value={fine}
-                    onChange={(event) => {
-                        setFine(event.target.value)
-                    }}
-                />
+                    {/* fine */}
+                    <label htmlFor="dataFine">Ritorno</label>
+                    <input
+                        id="dataFine"
+                        name="dataFine"
+                        type="date"
+                        value={formData.dataFine}
+                        onChange={updateFormData}
+                        min="2026-01-28"
+                        required
+                    />
 
-                {/* tipo */}
+                    {/* tipo */}
 
-                {/* correggere, deve scegliere tra 2 valori */}
-                <label htmlFor="tipo">tipo?</label>
-                <input
-                    id="tipo"
-                    type="text"
-                    value={tipo}
-                    onChange={(event) => {
-                        setTipo(event.target.value)
-                    }}
-                />
+                    <label htmlFor="tipoS">Soft</label>
+                    <input
+                        id="tipoS"
+                        name="tipologia"
+                        type="radio"
+                        value="Soft"
+                        checked={formData.tipologia === 'Soft'}
+                        onChange={updateFormData}
+                        required
+                    />
+                    <label htmlFor="tipoW">Wild</label>
+                    <input
+                        id="tipoW"
+                        name="tipologia"
+                        type="radio"
+                        value="Wild"
+                        checked={formData.tipologia === 'Wild'}
+                        onChange={updateFormData}
+                        required
+                    />
 
 
 
-                <button type="submit">invia</button>
-            </form>
+                    <button type="submit">invia</button>
+                </form>
+            </section>
         </>
     );
 }

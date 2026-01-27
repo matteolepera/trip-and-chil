@@ -15,7 +15,7 @@ export default function ViaggioSingoloPage() {
     if (partecipanti.length === 0) {
         return (
             <div className="container py-5">
-                <div className="text-center">
+                <div className="text-center mt-3">
                     <i className="bi bi-person-x" style={{ fontSize: '3rem', color: '#FFB5A5' }}></i>
                     <h3 className="mt-3">Nessun partecipante trovato</h3>
                     <p className="text-muted">Non ci sono partecipanti registrati per questo viaggio.</p>

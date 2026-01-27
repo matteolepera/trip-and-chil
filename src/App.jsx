@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import DefaultLayout from "./layouts/DefaultLayout"
 import Home from "./pages/Home"
 import ViaggioSingoloPage from "./pages/ViaggioSingoloPage"
+import Notfound from "./pages/NotFound"
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route element={<Home />} path="/" />
             <Route element={<ViaggioSingoloPage />} path="/viaggio/:id" />
-            <R
+            <Route element={<Notfound />} path="*" />
             <Route />
           </Route>
         </Routes>

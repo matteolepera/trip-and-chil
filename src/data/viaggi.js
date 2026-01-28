@@ -153,8 +153,8 @@ const viaggi = [
     },
     {
         id: 20,
-        citta: "Nuova Zelanda on the road",
-        nazione: "Nuova Zelanda",
+        citta: "Tromsø",
+        nazione: "Norvegia",
         dataInizio: "2026-12-28",
         dataFine: "2027-01-12",
         tipologia: "Wild"

@@ -34,9 +34,24 @@ export default function ViaggioSingoloPage() {
         <>
             <div className="py-5 container">
                 <SearchBar value={searchGuest} onChange={setSearchGuest} />
-                <div className="d-flex justify-content-between gap-2">
+                <div className="d-flex justify-content-between align-items-center gap-2">
                     <Button onClick={() => navigate(-1)} ><i className="bi bi-arrow-left-circle-fill me-2"></i>Torna indietro</Button>
+                    <div style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        padding: '8px 16px',
+                        borderRadius: '12px',
+                        background: 'linear-gradient(135deg, #FFB5A5 0%, #FF9580 100%)',
+                        boxShadow: '0 2px 12px rgba(255, 149, 128, 0.25)',
+                        gap: '8px'
+                    }}>
+                        <i className="bi bi-people-fill" style={{ color: '#fff', fontSize: '1rem' }}></i>
+                        <span style={{ color: '#fff', fontWeight: '600', fontSize: '0.95rem' }}>
+                            {partecipanti.length}
+                        </span>
+                    </div>
                 </div>
+
                 <div className="row g-3 mt-4">
                     {ricercaPartecipante.map(p => (
                         <GuestCard key={p.id} partecipante={p} />

@@ -10,6 +10,7 @@ const initialData = {
 
 export default function FormViaggi({ addViaggio }) {
     const [formData, setFormData] = useState(initialData);
+    const [showAlert, setShowAlert] = useState(false);
 
     function updateFormData(event) {
         const { value, name } = event.target;
@@ -30,6 +31,13 @@ export default function FormViaggi({ addViaggio }) {
 
             addViaggio(formData);
             setFormData(initialData);
+            // Mostra l'alert
+            setShowAlert(true);
+
+            // Nascondi dopo 3 secondi
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
 
         } else {
             alert('Compila tutti i campi!');
@@ -124,7 +132,7 @@ export default function FormViaggi({ addViaggio }) {
                                     </div>
 
                                     <div className="row mb-4">
-                                        <div className="col-md-6 mb-3 mb-md-0">
+                                        <div className="col-md-12 mb-3 mb-md-0">
                                             <label htmlFor="dataInizio" className="form-label" style={{
                                                 fontSize: '0.75rem',
                                                 color: '#FF9580',
@@ -153,7 +161,7 @@ export default function FormViaggi({ addViaggio }) {
                                                 }}
                                             />
                                         </div>
-                                        <div className="col-md-6">
+                                        <div className="col-md-12">
                                             <label htmlFor="dataFine" className="form-label" style={{
                                                 fontSize: '0.75rem',
                                                 color: '#FF9580',
@@ -257,6 +265,27 @@ export default function FormViaggi({ addViaggio }) {
                                                 </label>
                                             </div>
                                         </div>
+
+                                        {showAlert && (
+                                            <div className="alert alert-success alert-dismissible fade show mt-4" role="alert" style={{
+                                                borderRadius: '10px',
+                                                border: 'none',
+                                                boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)'
+                                            }}>
+                                                <div className="d-flex align-items-center">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="me-2">
+                                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                                    </svg>
+                                                    <strong>Viaggio aggiunto con successo!</strong>
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    className="btn-close"
+                                                    onClick={() => setShowAlert(false)}
+                                                ></button>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="d-grid">

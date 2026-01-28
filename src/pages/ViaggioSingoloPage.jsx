@@ -36,9 +36,6 @@ export default function ViaggioSingoloPage() {
                 <SearchBar value={searchGuest} onChange={setSearchGuest} />
                 <div className="d-flex justify-content-between gap-2">
                     <Button onClick={() => navigate(-1)} ><i className="bi bi-arrow-left-circle-fill me-2"></i>Torna indietro</Button>
-                    <Button onClick={() => setShowEmergency(true)} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <i className="bi bi-person-fill-add"></i>
-                    </Button>
                 </div>
                 <div className="row g-3 mt-4">
                     {ricercaPartecipante.map(p => (
